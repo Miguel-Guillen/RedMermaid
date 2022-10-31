@@ -1,0 +1,26 @@
+<section class="bg-dark">
+    <div class="login-container d-flex justify-content-center align-items-center">
+        <div class="col-10 col-md-6 bg-light rounded p-4">
+            <h4 class="text-center">Iniciar sesion</h4>
+            <div>
+                <form class="m-4" [formGroup]="loginForm">
+                    <div *ngIf="loginValid === false" class="alert alert-danger mt-3" role="alert">
+                        Formulario invalido
+                    </div>
+                    <div class="row">
+                        <div class="col-12 my-2">
+                            <label class="form-label">Correo</label>
+                            <input class="form-control" formControlName="email" type="email">
+                        </div>
+                        <div class="col-12 my-2">
+                            <label class="form-label">Contraseña</label>
+                            <input class="form-control" formControlName="pass" type="password">
+                        </div>
+                    </div>
+                    <button class="btn btn-outline-success float-end mt-3"
+                    (click)="login(loginForm.value)" type="submit">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

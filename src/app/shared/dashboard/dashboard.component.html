@@ -1,0 +1,56 @@
+<app-navbar></app-navbar>
+<section class="container-fluid min-vh-100 px-5">
+    <div>
+        <div id="carouselExampleIndicators" class="carousel slide carousel-container mb-4" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active text-center">
+                <img class="img-fluid" src="https://img.freepik.com/vector-gratis/moviles-realistas-diferentes-perspectivas_52683-51018.jpg?w=1800&t=st=1667112886~exp=1667113486~hmac=6b4c1c71e2a41c980cd891881ff5dc081ab4a8b6be1215cc1b8a4137cbcee7a5"  alt="...">
+              </div>
+              <div class="carousel-item text-center">
+                <img class="img-fluid" src="https://img.freepik.com/psd-premium/maqueta-telefono-inteligente_112298-43.jpg?w=1380" alt="...">
+              </div>
+              <div class="carousel-item text-center">
+                <img class="img-fluid" src="https://img.freepik.com/psd-premium/cerca-maqueta-portatil-flotante_308775-6.jpg?w=1380" alt="...">
+              </div>
+              <div class="carousel-item text-center">
+                <img class="img-fluid" src="https://img.freepik.com/psd-gratis/maqueta-tablet-pro-psd_165789-446.jpg?w=1380&t=st=1667112967~exp=1667113567~hmac=95615b1ad234f029bdf572e097632dc3ece22866eb5037f1ca4b5c12ac2d05ed" alt="...">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+        <h5>Productos recientes</h5>
+
+        <div class="row my-4">
+          <div *ngFor="let producto of productos" class="col-3 p-2">
+            <div class="text-center">
+              <img [src]="producto.img" class="card-img-top img-fluid" alt="...">
+            </div>
+            <div class="card-body">
+              <p class="card-title fs-5">{{ producto.nombre }}</p>
+              <p class="card-text my-1">{{ producto.descripcion }}</p>
+              <div *ngIf="producto.descuento != 0">
+                <p class="text-decoration-line-through text-muted my-1">${{ producto.precio | number : '1.2-2' }}</p>
+                <h5 class="mt-2 mb-1">Precio: ${{ producto.precio - (producto.precio * (producto.descuento * 1 / 100)) | number : '1.2-2' }}</h5>
+              </div>
+              <div *ngIf="producto.descuento == 0">
+                <h5 class="mt-2 mb-1">Precio: ${{ producto.precio | number : '1.2-2' }}</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+</section>

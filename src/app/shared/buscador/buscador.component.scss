@@ -1,0 +1,18 @@
+.products-container {
+    min-height: 50vh;
+}
+
+.formulario {
+    height: max-content;
+}
+.product {
+    border-radius: 10px;
+}
+.product:hover {
+    background-color: #ccc;
+    cursor: pointer;
+}
+.product img {
+    width: auto;
+    height: 85px;
+}
